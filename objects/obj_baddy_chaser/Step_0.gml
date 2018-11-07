@@ -13,7 +13,7 @@ switch(state){
 		if (!audio_is_playing(snd_helicoptGrabber) && obj_gameController.soundOn){
 			audio_play_sound(snd_helicoptGrabber, 1, false)
 		}
-		angle_target = point_direction(x,y,obj_playerParent.x,obj_playerParent.y)
+		angle_target = point_direction(x,y,obj_player.x,obj_player.y)
 		break;
 }
 

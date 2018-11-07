@@ -84,7 +84,7 @@ if (room != rm_mainMenu && room != rm_options) {
 	//set view of room to The Good Camera
 	cam = camera_create()
 	camera_set_view_size(cam, cam_width, cam_height)
-	camera_set_view_target(cam, obj_playerParent)
+	camera_set_view_target(cam, obj_player)
 	camera_set_view_speed(cam, 5, 5)
 	camera_set_view_border(cam, cam_width/2, cam_height/2)
 	view_enabled = true
@@ -94,7 +94,7 @@ if (room != rm_mainMenu && room != rm_options) {
 	//center camera on player as best as you can
 	var xx=0,yy=0,cx,cy;
 	
-	with obj_playerParent {
+	with obj_player {
 		xx = x
 		yy = y
 	}

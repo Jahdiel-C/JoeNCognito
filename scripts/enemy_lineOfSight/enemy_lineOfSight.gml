@@ -1,4 +1,4 @@
-var adiff = angle_difference(angle, point_direction(x,y,obj_playerParent.x,obj_playerParent.y));
+var adiff = angle_difference(angle, point_direction(x,y,obj_player.x,obj_player.y));
 
 return 
 	!obj_gameController.playerInvisible && //player isn't invisible

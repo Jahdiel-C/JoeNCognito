@@ -35,7 +35,7 @@ for(var i=0;(ex>=0 && ex<=room_width && ey>=0 && ey<=room_height);i++){
 		ex = xxx
 		ey = yyy
 		
-		with instance_place(xxx,yyy,obj_playerParent){
+		with instance_place(xxx,yyy,obj_player){
 			event_user(0)
 		}
 	}

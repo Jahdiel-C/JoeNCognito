@@ -17,6 +17,6 @@ switch(state){
 			break;
 		}
 		
-		angle_target = point_direction(x,y,obj_playerParent.x,obj_playerParent.y)
+		angle_target = point_direction(x,y,obj_player.x,obj_player.y)
 		break;
 }

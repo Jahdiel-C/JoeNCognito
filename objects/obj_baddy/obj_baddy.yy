@@ -82,7 +82,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 256,
-            "value": "obj_playerParent",
+            "value": "obj_player",
             "varName": "targetObj",
             "varType": 5
         },

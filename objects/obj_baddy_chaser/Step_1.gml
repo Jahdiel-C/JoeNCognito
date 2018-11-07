@@ -8,17 +8,17 @@ switch(state){
 	case chaser.idle:
 		if !disabled && lineOfSight {
 			state = chaser.chasing
-			motionPlan_pointOfInterest(obj_playerParent.x,obj_playerParent.y)
+			motionPlan_pointOfInterest(obj_player.x,obj_player.y)
 			alarm[1] = 15
 		} else break;
 	case chaser.chasing:
 		if !lineOfSight {
 			alarm[1] = -1
-			motionPlan_pointOfInterest(obj_playerParent.x,obj_playerParent.y)
+			motionPlan_pointOfInterest(obj_player.x,obj_player.y)
 			state = chaser.pathing
 		} else if !motionPlan_process(motionPath){
 			//refresh path
-			motionPlan_pointOfInterest(obj_playerParent.x,obj_playerParent.y)
+			motionPlan_pointOfInterest(obj_player.x,obj_player.y)
 			alarm[1] = 15
 		}
 		
@@ -26,7 +26,7 @@ switch(state){
 	case chaser.pathing:
 		if lineOfSight {
 			state = chaser.chasing
-			motionPlan_pointOfInterest(obj_playerParent.x,obj_playerParent.y)
+			motionPlan_pointOfInterest(obj_player.x,obj_player.y)
 			alarm[1] = 15
 		}
 		
