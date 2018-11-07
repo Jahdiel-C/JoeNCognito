@@ -5,6 +5,11 @@ Designer: Luke
 Programmer: Jahdiel
 Artist: Filippo
 
+Overview:
+Joe N. Cognito was a hardworking employee at the world’s largest data processing company, Secure Accounts For Everyone (SAFE). However, he's since come under the realization that his own private data has been taken by the company! If he doesn’t want that information to be distributed to other companies, he has to infiltrate the data center and wipe the information himself before tomorrow morning.
+
+Unfortunately, SAFE’s night security is vast and dangerous. A legion of robotic security patrol the halls of the facility, and just one guard could easily subdue Joe in a fight. In order to succeed in his mission, Joe must traverse the halls under the cover of shadow. He must strategically maneuver his way past guard patrols, as being detected would unleash a world of hurt. Fortunately for Joe, SAFE is currently developing experimental technologies that, if found, could prove invaluable in his mission.
+
 Menu Instructions:
 In Main Menu - Left click on buttons to make your choice.
 In Options Menu - Left click on the white box to make choices about cheats, music, and sound.
