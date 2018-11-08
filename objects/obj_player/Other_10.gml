@@ -10,4 +10,7 @@ if(!obj_gameController.noDeaths) && dead = false {
 	dead = true
 	xSpd = 0
 	ySpd = 0
+	obj_gameController.canShoot = false
+	obj_gameController.canProjector = false
+	obj_gameController.canCoat = false
 }

@@ -1,45 +1,64 @@
+if obj_gameController.infiniteSprint then sbar_width = 0
+else sbar_width = 200
 
+gunPos = [sbar_width, obj_gameController.cam_height - sprite_get_height(spr_gun)]
+projPos = [sbar_width + sprite_get_width(spr_gun), 
+	obj_gameController.cam_height - sprite_get_height(spr_projector)]
+coatPos = [sbar_width + sprite_get_width(spr_gun) + sprite_get_width(spr_projector), 
+	obj_gameController.cam_height - sprite_get_height(spr_coat)]
+keyPos = [0, obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key))]
+
+if(obj_gameController.hasCoat) then itemBarX2 = coatPos[0] + sprite_get_width(spr_coat) +1
+else if(obj_gameController.hasProjector) then itemBarX2 = projPos[0] + sprite_get_width(spr_coat) +1
+else if(obj_gameController.hasGun) then itemBarX2 = gunPos[0] + sprite_get_width(spr_coat) +1
+else itemBarX2 = sbar_width
+
+// Draw Key/Death bar
+if(obj_gameController.numKeys > 0 || obj_gameController){
+	draw_rectangle_color(0, obj_gameController.cam_height, sprite_get_width(spr_key) + 10,
+		obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key)),
+		c_gray, c_gray, c_gray, c_gray, false)
+}
+
+// Keys GUI
+if(obj_gameController.numKeys > 0) {
+	draw_sprite_ext(spr_key, 0, keyPos[0], keyPos[1], 1.25, 1.25, 0, c_white, 1)
+}
+if(obj_gameController.numKeys > 1){
+	draw_text(sprite_get_width(spr_key), 
+		obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key)/2 + 1), 
+		obj_gameController.numKeys)
+}
+
+// Draw Item Bar
+draw_rectangle_color(sbar_width, obj_gameController.cam_height, itemBarX2,
+	obj_gameController.cam_height - (sbar_height + 1), c_gray, c_gray, c_gray, c_gray, false)
+	
 // Gun GUI
 if(obj_gameController.hasGun)
 {
-	gunPos = [32, obj_gameController.cam_height - sprite_get_height(spr_gun) * 4]
-	draw_sprite_ext(spr_gun, 0, gunPos[0], gunPos[1], 1, 1, 0, c_white, 0.2)
+	draw_sprite_ext(spr_gun, 0, gunPos[0], gunPos[1], 1, 1, 0, c_white, 0.15)
 	if obj_effectTimer.alarm[2] > 0 {
-		draw_set_alpha(0.5)
+		draw_set_alpha(0.4)
 		draw_sprite_part(spr_gun, 0, 0, 0, 
 			sprite_get_width(spr_gun) - sprite_get_width(spr_gun) * obj_effectTimer.alarm[2] / (cooldown_gun*30), 
 			sprite_get_width(spr_gun), gunPos[0], gunPos[1])
 		draw_set_alpha(1)
 	}
 	if obj_gameController.canShoot {
-		draw_sprite(spr_gun, 0, 32, obj_gameController.cam_height - sprite_get_height(spr_gun) * 4)
-	}
-}
-
-// Coat GUI
-if(obj_gameController.hasCoat)
-{
-	coatPos = [32, obj_gameController.cam_height - sprite_get_height(spr_coat) * 6]
-	draw_sprite_ext(spr_coat, 0, coatPos[0], coatPos[1], 1, 1, 0, c_white, 0.2)
-	if obj_effectTimer.alarm[1] > 0 {
-		draw_set_alpha(0.5)
-		draw_sprite_part(spr_coat, 0, 0, 0, sprite_get_width(spr_coat) - sprite_get_width(spr_coat) * obj_effectTimer.alarm[1] / (cooldown_invisible*30), sprite_get_height(spr_coat),  coatPos[0], coatPos[1])
-		draw_set_alpha(1)
-	}
-	if obj_gameController.canCoat {
-		draw_sprite(spr_coat, 0, coatPos[0], coatPos[1])
+		draw_sprite(spr_gun, 0, gunPos[0], gunPos[1])
 	}
 }
 
 // Projector GUI
 if(obj_gameController.hasProjector)
 {
-	projPos = [32, obj_gameController.cam_height - sprite_get_height(spr_projector) * 8]
-	
-	draw_sprite_ext(spr_projector, 0, projPos[0], projPos[1], 1, 1, 0, c_white, 0.2)
+	draw_sprite_ext(spr_projector, 0, projPos[0], projPos[1], 1, 1, 0, c_white, 0.15)
 	if obj_effectTimer.alarm[3] > 0 {
-		draw_set_alpha(0.5)
-		draw_sprite_part(spr_projector, 0, 0, 0, sprite_get_width(spr_projector) - sprite_get_width(spr_projector) * obj_effectTimer.alarm[3] / (cooldown_sound*30), sprite_get_height(spr_projector), projPos[0], projPos[1])
+		draw_set_alpha(0.4)
+		draw_sprite_part(spr_projector, 0, 0, 0, 
+			sprite_get_width(spr_projector) - sprite_get_width(spr_projector) * obj_effectTimer.alarm[3] / (cooldown_sound*30), 
+			sprite_get_height(spr_projector), projPos[0], projPos[1])
 		draw_set_alpha(1)
 	}
 	if obj_gameController.canProjector {
@@ -47,13 +66,25 @@ if(obj_gameController.hasProjector)
 	}
 }
 
-// Keys GUI
-for (i = 0; i < obj_gameController.numKeys; i++) {
-	draw_sprite_ext(spr_key, 0, obj_gameController.cam_width - 64 - 64 * i, obj_gameController.cam_height - 64, 2, 2, 0, c_white, 1)
+// Coat GUI
+if(obj_gameController.hasCoat)
+{
+	draw_sprite_ext(spr_coat, 0, coatPos[0], coatPos[1], 1, 1, 0, c_white, 0.15)
+	if obj_effectTimer.alarm[1] > 0 {
+		draw_set_alpha(0.4)
+		draw_sprite_part(spr_coat, 0, 0, 0, 
+			sprite_get_width(spr_coat) - sprite_get_width(spr_coat) * obj_effectTimer.alarm[1] / (cooldown_invisible*30), 
+			sprite_get_height(spr_coat),  coatPos[0], coatPos[1])
+		draw_set_alpha(1)
+	}
+	if obj_gameController.canCoat {
+		draw_sprite(spr_coat, 0, coatPos[0], coatPos[1])
+	}
 }
 
 // Draw stamina bar
 // Background
+if(!obj_gameController.infiniteSprint){
 draw_set_color(make_color_rgb(142, 102, 0))
 draw_rectangle(sbar_position[0], sbar_position[1], 
 	sbar_position[0] + sbar_width, 
@@ -68,10 +99,5 @@ else {
 draw_rectangle(sbar_position[0], sbar_position[1], 
 	sbar_position[0] + (sbar_width * obj_gameController.stamina/obj_gameController.staminaMax), 
 	sbar_position[1] + sbar_height, false)
-// Outline
-draw_set_color(make_color_rgb(41, 21, 0))
-draw_rectangle(sbar_position[0], sbar_position[1], 
-	sbar_position[0] + sbar_width, 
-	sbar_position[1] + sbar_height, true)
+}
 draw_set_color(c_white)
-	
