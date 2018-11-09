@@ -4,6 +4,7 @@
 // If the player picked up the coat and it isn't on cooldown,
 // allow the player to go invisible and disable the player's ability
 // to use the coat again until the cooldown is complete
+if dead then exit;
 if(obj_gameController.hasCoat && obj_gameController.canCoat)
 {
 	

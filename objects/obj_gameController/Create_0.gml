@@ -5,7 +5,7 @@ hasProjector = false
 // Keeps track of what items the player has picked up
 // This is necessary for the player to revert back to the proper
 // state when cheat codes are turned off.
-actualUnlocks = [hasGun, hasCoat, hasProjector]
+actualUnlocks = [hasGun, hasProjector, hasCoat]
 
 // Keep track of the abilities the player can use
 // If cooldown is complete, these variables are true)
@@ -16,6 +16,7 @@ canSprint = true
 
 playerInvisible = false
 
+numDeaths = 0
 numKeys = 0
 staminaMax = 50
 stamina = staminaMax

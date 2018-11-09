@@ -4,6 +4,7 @@
 // If the player picked up the projector and it isn't on cooldown,
 // allow the player to go project a noise and disable the player's ability
 // to use the projector again until the cooldown is complete
+if dead then exit;
 if(obj_gameController.hasProjector && obj_gameController.canProjector)
 {
 	// Gives the object a layer to be created on

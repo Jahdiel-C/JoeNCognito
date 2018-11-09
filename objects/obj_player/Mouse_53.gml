@@ -4,6 +4,8 @@
 // If the player picked up the gun and it isn't on cooldown,
 // allow the player to shoot and disable the player's ability
 // to use the gun again until the cooldown is complete
+
+if dead then exit;
 if(obj_gameController.hasGun && obj_gameController.canShoot)
 {
 	// Give the bullet a layer to be created on

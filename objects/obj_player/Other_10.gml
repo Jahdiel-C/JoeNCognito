@@ -1,16 +1,15 @@
 /// @description Change Sprite, End Game
 // You can write your code in this editor
 
-if(!obj_gameController.noDeaths) && dead = false {
+if(!obj_gameController.noDeaths) && !dead {
 	sprite_index = spr_playerDead
 	audio_play_sound(snd_playerDeath, 0, false)
 	// Go back to main menu
-	alarm_set(0, 40)
+	with(obj_gameController){
+		alarm_set(0, 40)
+	}
 	
 	dead = true
 	xSpd = 0
 	ySpd = 0
-	obj_gameController.canShoot = false
-	obj_gameController.canProjector = false
-	obj_gameController.canCoat = false
 }

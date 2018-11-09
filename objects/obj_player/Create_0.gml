@@ -24,7 +24,7 @@ if !instance_exists(obj_effectTimer) then instance_create_layer(0,0,layer,obj_ef
 
 
 // Stamina bar item dimentions
-sbar_width = 200
+sbar_width = 0
 sbar_height = 5 + max(sprite_get_height(spr_gun),sprite_get_height(spr_projector), 
-	sprite_get_height(spr_coat), sprite_get_height(spr_key))
+	sprite_get_height(spr_coat))
 sbar_position = [0, obj_gameController.cam_height - sbar_height] // x,y position

@@ -10,6 +10,7 @@ with(obj_gameController)
 	ini_write_real("Items", "hasCoat", false)
 	ini_write_real("Items", "hasProjector", false)
 	ini_write_real("Items", "numKeys", 0)
+	ini_write_real("Status", "numDeaths", 0)
 	ini_close()
 }
 

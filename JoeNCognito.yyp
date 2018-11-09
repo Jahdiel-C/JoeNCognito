@@ -1311,6 +1311,14 @@
             }
         },
         {
+            "Key": "d1fe4454-8f17-44b0-b862-fa4e6bb87fb8",
+            "Value": {
+                "id": "b86da891-f133-4267-9384-ebb43cda0b38",
+                "resourcePath": "sprites\\spr_playerDeadIcon\\spr_playerDeadIcon.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d3017ea8-78bd-466d-89a7-528ebb6b76a0",
             "Value": {
                 "id": "048c930b-2a8f-4ec4-b3b9-c3388af81f70",

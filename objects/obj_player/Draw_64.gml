@@ -6,7 +6,8 @@ projPos = [sbar_width + sprite_get_width(spr_gun),
 	obj_gameController.cam_height - sprite_get_height(spr_projector)]
 coatPos = [sbar_width + sprite_get_width(spr_gun) + sprite_get_width(spr_projector), 
 	obj_gameController.cam_height - sprite_get_height(spr_coat)]
-keyPos = [0, obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key))]
+keyPos = [0, obj_gameController.cam_height - (2 + sbar_height + sprite_get_height(spr_key))]
+deadPos = [sprite_get_width(spr_key) + 5, obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_playerDeadIcon)/2)]
 
 if(obj_gameController.hasCoat) then itemBarX2 = coatPos[0] + sprite_get_width(spr_coat) +1
 else if(obj_gameController.hasProjector) then itemBarX2 = projPos[0] + sprite_get_width(spr_coat) +1
@@ -14,9 +15,10 @@ else if(obj_gameController.hasGun) then itemBarX2 = gunPos[0] + sprite_get_width
 else itemBarX2 = sbar_width
 
 // Draw Key/Death bar
-if(obj_gameController.numKeys > 0 || obj_gameController){
-	draw_rectangle_color(0, obj_gameController.cam_height, sprite_get_width(spr_key) + 10,
-		obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key)),
+if(obj_gameController.numKeys > 0 || obj_gameController.numDeaths > 0){
+	draw_rectangle_color(0, obj_gameController.cam_height,
+		sprite_get_width(spr_key) + sprite_get_width(spr_playerDeadIcon)/2 + 20,
+		obj_gameController.cam_height - (1 + sbar_height + max(sprite_get_height(spr_key), sprite_get_height(spr_playerDeadIcon)/2)),
 		c_gray, c_gray, c_gray, c_gray, false)
 }
 
@@ -28,6 +30,16 @@ if(obj_gameController.numKeys > 1){
 	draw_text(sprite_get_width(spr_key), 
 		obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_key)/2 + 1), 
 		obj_gameController.numKeys)
+}
+
+// Deaths GUI
+if(obj_gameController.numDeaths > 0) {
+	draw_sprite_ext(spr_playerDeadIcon, 0, deadPos[0], deadPos[1], 0.5, 0.5, 0, c_white, 1)
+}
+if(obj_gameController.numDeaths > 1){
+	draw_text(sprite_get_width(spr_key) + sprite_get_width(spr_playerDeadIcon)/2, 
+		obj_gameController.cam_height - (sbar_height + sprite_get_height(spr_playerDeadIcon)/4 + 1), 
+		obj_gameController.numDeaths)
 }
 
 // Draw Item Bar

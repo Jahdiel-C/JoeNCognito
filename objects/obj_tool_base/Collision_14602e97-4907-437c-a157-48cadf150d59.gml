@@ -16,6 +16,8 @@ with obj_gameController{
 			hasCoat = true;
 			break;
 	}
+	
+	
 }
 
 instance_destroy()
