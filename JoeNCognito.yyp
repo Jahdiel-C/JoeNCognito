@@ -1375,6 +1375,14 @@
             }
         },
         {
+            "Key": "dea7249a-cf1b-4798-8a64-c2601bb8d2c5",
+            "Value": {
+                "id": "03289d95-4075-4b1c-9f83-070763828034",
+                "resourcePath": "sounds\\snd_buttonClick\\snd_buttonClick.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "dec79c2a-3145-41e6-b772-0b0f4b1c8577",
             "Value": {
                 "id": "0b062f26-fb9e-4bbc-bcc9-fe8642009516",

@@ -8,7 +8,7 @@ if dead then exit;
 if(obj_gameController.hasCoat && obj_gameController.canCoat)
 {
 	
-	audio_play_sound(snd_coatUse, 1, false)
+	if(obj_gameController.soundOn) then audio_play_sound(snd_coatUse, 1, false)
 
 	obj_gameController.playerInvisible = true
 	obj_gameController.canCoat = false

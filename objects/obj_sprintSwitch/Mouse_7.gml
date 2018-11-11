@@ -18,5 +18,4 @@ else
 }
 
 ini_close()
-
-
+if(obj_gameController.soundOn) then audio_play_sound(snd_buttonClick, 1, false);

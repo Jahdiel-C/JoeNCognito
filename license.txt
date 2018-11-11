@@ -51,3 +51,6 @@ snd_helicoptGrabber
 snd_doorLock
 	door_lock by Partners In Rhyme
 	https://www.freesoundeffects.com/free-track/door-lock-426734/
+snd_buttonClick
+	Button Click On Sound by MIke Koenig
+	http://soundbible.com/184-Button-Click-On.html

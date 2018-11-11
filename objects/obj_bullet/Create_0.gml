@@ -3,7 +3,7 @@
 
 event_inherited();
 
-audio_play_sound(snd_Gun, 1, false)
+if(obj_gameController.soundOn) then audio_play_sound(snd_Gun, 1, false)
 
 dir = point_direction(x,y, mouse_x,mouse_y)
 

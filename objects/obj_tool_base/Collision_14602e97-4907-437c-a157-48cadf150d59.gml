@@ -1,7 +1,7 @@
 /// @description Pick up Item
 // You can write your code in this editor
 
-audio_play_sound(snd_pickUp, 0, false)
+if(obj_gameController.soundOn) then audio_play_sound(snd_pickUp, 0, false)
 
 with obj_gameController{
 	actualUnlocks[other.unlockIndex] = true

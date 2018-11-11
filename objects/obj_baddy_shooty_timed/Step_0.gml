@@ -7,7 +7,7 @@ switch(state){
 	case turret.idle:
 		if lineOfSight {
 			if (obj_gameController.soundOn && !audio_is_playing(laserCharge)){
-				audio_play_sound(laserCharge, 1, false)
+				if(obj_gameController.soundOn) then audio_play_sound(laserCharge, 1, false)
 			}
 			timeline_index = tml_baddy_shooty;
 			timeline_position = 0;

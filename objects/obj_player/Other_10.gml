@@ -3,7 +3,7 @@
 
 if(!obj_gameController.noDeaths) && !dead {
 	sprite_index = spr_playerDead
-	audio_play_sound(snd_playerDeath, 0, false)
+	if(obj_gameController.soundOn) then audio_play_sound(snd_playerDeath, 0, false)
 	// Go back to main menu
 	with(obj_gameController){
 		alarm_set(0, 40)
