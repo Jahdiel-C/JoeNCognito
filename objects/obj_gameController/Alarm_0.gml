@@ -3,6 +3,7 @@
 
 obj_player.dead = false
 stamina = staminaMax
+playerInvisible = false
 
 with(obj_effectTimer)
 {
