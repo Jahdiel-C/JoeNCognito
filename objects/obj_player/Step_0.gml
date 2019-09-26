@@ -11,6 +11,11 @@ var vectX = keyboard_check(ord("D")) - keyboard_check(ord("A")),
 //sprinting checks a few things but does not necessarily subtract from stamina
 sprinting = (keyboard_check(vk_lshift) && 
 	obj_gameController.canSprint);
+	
+if (sprinting && obj_gameController.playerInvisible)
+{
+	event_user(1);
+}
 
 //show_debug_message(string(obj_gameController.stamina) + ", "+string(sprinting))
 

@@ -11,6 +11,11 @@ if(obj_gameController.hasProjector && obj_gameController.canProjector)
 	instance_create_layer(x,y,layer, obj_noise)
 	obj_gameController.canProjector = false
 	
+	if (obj_gameController.playerInvisible)
+	{
+		event_user(1);
+	}
+	
 	// Set the cooldown
 	with(obj_effectTimer)
 	{

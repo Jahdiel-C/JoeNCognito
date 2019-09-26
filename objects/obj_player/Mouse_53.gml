@@ -12,7 +12,10 @@ if(obj_gameController.hasGun && obj_gameController.canShoot)
 	instance_create_layer(x,y,layer, obj_bullet)
 	
 	//show_debug_message(instance_exists(obj_bullet))
-	
+	if (obj_gameController.playerInvisible)
+	{
+		event_user(1);
+	}
 	obj_gameController.canShoot = false
 	
 	// Set the cooldown
